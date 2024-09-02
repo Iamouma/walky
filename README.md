@@ -1,1 +1,1 @@
-Walky is an ecommerce plaform.
+Walky is an ecommerce platform.
