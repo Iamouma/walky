@@ -1,9 +1,8 @@
 const express = require('express');
+const { authenticateToken, checkAdmin } = require('../middleware/auth');
 const Order = require('../models/Order');
 const Product = require('../models/Product');
 const router = express.Router();
-const { authenticateToken, checkAdmin } = require('../middleware/auth');
-
 
 // Create a new order
 router.post('/', authenticateToken, async (req, res) => {
@@ -44,7 +43,7 @@ router.get('/', authenticateToken, checkAdmin, async (req, res) => {
 });
 
 // Get orders by user ID
-router.get('/user/:id', authenticateToken, checkAdmin, async (req, res) => {
+router.get('/user/:id', async (req, res) => {
     try {
         const orders = await Order.find({ user: req.params.id }).populate('products.product', 'name price');
         res.json(orders);
@@ -54,7 +53,7 @@ router.get('/user/:id', authenticateToken, checkAdmin, async (req, res) => {
 });
 
 // Update order status by ID (Admin only)
-router.put('/:id', authenticateToken, checkAdmin, async (req, res) => {
+router.put('/:id', authenticateToken, checkAdmin,  async (req, res) => {
     try {
         const updatedOrder = await Order.findByIdAndUpdate(
             req.params.id,

@@ -1,10 +1,10 @@
 const express = require('express');
+const { authenticateToken, checkAdmin } = require('../middleware/auth');
 const Product = require('../models/Product');
 const router = express.Router();
-const { authenticateToken, checkAdmin } = require('../middleware/auth');
 
 // Create a new product (Admin only)
-router.post('/', authenticateToken, checkAdmin, async (req, res) => {
+router.post('/', authenticateToken, checkAdmin,  async (req, res) => {
     const { name, description, category, price, inStock } = req.body;
     try {
         const newProduct = new Product({
@@ -59,7 +59,7 @@ router.put('/:id', authenticateToken, checkAdmin, async (req, res) => {
 });
 
 // Delete a product by ID (Admin only)
-router.delete('/:id', authenticateToken, checkAdmin, async (req, res) => {
+router.delete('/:id', authenticateToken, checkAdmin,  async (req, res) => {
     try {
         const deletedProduct = await Product.findByIdAndDelete(req.params.id);
         if (!deletedProduct) return res.status(404).json({ message: 'Product not found' });

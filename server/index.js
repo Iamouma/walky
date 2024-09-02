@@ -1,6 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const authRoute = require('./routes/auth');
+const productRoute = require('./routes/product');
+const orderRoute = require('./routes/order');
+
 
 // Initialize the app
 const app = express();
@@ -11,16 +15,13 @@ dotenv.config();
 // Middleware to parse JSON
 app.use(express.json());
 
-// Basic route for testing
-app.get('/', (req, res) => {
-    res.send('Welcome to Walky E-commerce API');
-});
+// Routes
+app.use('/api/auth', authRoute);
+app.use('/api/products', productRoute);
+app.use('/api/orders', orderRoute);
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.log(err));
 
