@@ -40,6 +40,46 @@ exports.registerUser = async (req, res) => {
   }
 };
 
+// @desc    Register a new admin
+// @route   POST /api/auth/register-admin
+// @access  Public (or Private if you want to restrict who can create admins)
+exports.registerAdmin = async (req, res) => {
+  const { name, email, password } = req.body;
+
+  try {
+    let user = await User.findOne({ email });
+
+    if (user) {
+      return res.status(400).json({ message: 'Admin already exists' });
+    }
+
+    user = new User({
+      name,
+      email,
+      password,
+      isAdmin: true, // Set isAdmin to true
+    });
+
+    await user.save();
+
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: '1h',
+    });
+
+    res.status(201).json({
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        isAdmin: user.isAdmin,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
 // @desc    Login a user
 // @route   POST /api/auth/login
 // @access  Public

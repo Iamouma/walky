@@ -31,7 +31,7 @@ exports.getProductById = async (req, res) => {
 // @route   POST /api/products
 // @access  Private/Admin
 exports.createProduct = async (req, res) => {
-  const { name, description, price, category, countInStock, image } = req.body;
+  const { name, description, price, category, countInStock } = req.body;
 
   try {
     const product = new Product({
@@ -40,7 +40,6 @@ exports.createProduct = async (req, res) => {
       price,
       category,
       countInStock,
-      image,
     });
 
     const createdProduct = await product.save();
@@ -54,7 +53,7 @@ exports.createProduct = async (req, res) => {
 // @route   PUT /api/products/:id
 // @access  Private/Admin
 exports.updateProduct = async (req, res) => {
-  const { name, description, price, category, countInStock, image } = req.body;
+  const { name, description, price, category, countInStock } = req.body;
 
   try {
     const product = await Product.findById(req.params.id);
@@ -68,7 +67,6 @@ exports.updateProduct = async (req, res) => {
     product.price = price || product.price;
     product.category = category || product.category;
     product.countInStock = countInStock || product.countInStock;
-    product.image = image || product.image;
 
     const updatedProduct = await product.save();
     res.status(200).json(updatedProduct);
