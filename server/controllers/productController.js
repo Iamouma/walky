@@ -3,7 +3,7 @@ const Product = require('../models/Product');
 // @desc    Get all products
 // @route   GET /api/products
 // @access  Public
-exports.getProducts = async (req, res) => {
+const getProducts = async (req, res) => {
   try {
     const products = await Product.find({});
     res.status(200).json(products);
@@ -15,7 +15,7 @@ exports.getProducts = async (req, res) => {
 // @desc    Get a product by ID
 // @route   GET /api/products/:id
 // @access  Public
-exports.getProductById = async (req, res) => {
+const getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
     if (!product) {
@@ -30,7 +30,7 @@ exports.getProductById = async (req, res) => {
 // @desc    Create a new product
 // @route   POST /api/products
 // @access  Private/Admin
-exports.createProduct = async (req, res) => {
+const createProduct = async (req, res) => {
   const { name, description, price, category, countInStock } = req.body;
 
   try {
@@ -52,7 +52,7 @@ exports.createProduct = async (req, res) => {
 // @desc    Update a product
 // @route   PUT /api/products/:id
 // @access  Private/Admin
-exports.updateProduct = async (req, res) => {
+const updateProduct = async (req, res) => {
   const { name, description, price, category, countInStock } = req.body;
 
   try {
@@ -78,7 +78,7 @@ exports.updateProduct = async (req, res) => {
 // @desc    Delete a product
 // @route   DELETE /api/products/:id
 // @access  Private/Admin
-exports.deleteProduct = async (req, res) => {
+const deleteProduct = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
 
@@ -91,4 +91,43 @@ exports.deleteProduct = async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: 'Server error' });
   }
+};
+
+// @desc    Search and filter products
+// @route   GET /api/products/search
+// @access  Public
+const searchProducts = async (req, res) => {
+  try {
+    const { name, category, minPrice, maxPrice } = req.query;
+
+    // Build the query object
+    let query = {};
+
+    if (name) {
+      query.name = { $regex: name, $options: 'i' }; // case-insensitive search for name
+    }
+    if (category) {
+      query.category = category; // filter by category
+    }
+    if (minPrice || maxPrice) {
+      query.price = {};
+      if (minPrice) query.price.$gte = minPrice; // greater than or equal to minPrice
+      if (maxPrice) query.price.$lte = maxPrice; // less than or equal to maxPrice
+    }
+
+    const products = await Product.find(query); // Find products matching the query
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error });
+  }
+};
+
+// Exporting all functions
+module.exports = {
+  getProducts,
+  getProductById,
+  createProduct,
+  updateProduct,
+  deleteProduct,
+  searchProducts,
 };
