@@ -68,12 +68,12 @@
  *                 name:
  *                   type: string
  *                   example: Running Shoes
- *                 price:
- *                   type: number
- *                   example: 99.99
  *                 description:
  *                   type: string
  *                   example: High-quality running shoes for men
+ *                 price:
+ *                   type: number
+ *                   example: 99.99
  *                 category:
  *                   type: string
  *                   example: Shoes
@@ -102,13 +102,13 @@
  *             properties:
  *               name:
  *                 type: string
- *                 example: Running Shoes
- *               price:
- *                 type: number
- *                 example: 99.99
+ *                 example: Running Shoes  
  *               description:
  *                 type: string
  *                 example: High-quality running shoes for men
+ *               price:
+ *                 type: number
+ *                 example: 99.99
  *               category:
  *                 type: string
  *                 example: Shoes
@@ -150,12 +150,12 @@
  *               name:
  *                 type: string
  *                 example: Running Shoes
- *               price:
- *                 type: number
- *                 example: 99.99
  *               description:
  *                 type: string
  *                 example: High-quality running shoes for men
+ *               price:
+ *                 type: number
+ *                 example: 99.99
  *               category:
  *                 type: string
  *                 example: Shoes
