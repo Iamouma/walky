@@ -1,1 +1,1 @@
-An e-commerce platform
+An e-commerce platform API
