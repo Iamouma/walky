@@ -33,9 +33,6 @@
  *                   description:
  *                     type: string
  *                     example: High-quality running shoes for men
- *                   brand:
- *                     type: string
- *                     example: Nike
  *                   category:
  *                     type: string
  *                     example: Shoes
@@ -77,9 +74,6 @@
  *                 description:
  *                   type: string
  *                   example: High-quality running shoes for men
- *                 brand:
- *                   type: string
- *                   example: Nike
  *                 category:
  *                   type: string
  *                   example: Shoes
@@ -115,9 +109,6 @@
  *               description:
  *                 type: string
  *                 example: High-quality running shoes for men
- *               brand:
- *                 type: string
- *                 example: Nike
  *               category:
  *                 type: string
  *                 example: Shoes
@@ -165,9 +156,6 @@
  *               description:
  *                 type: string
  *                 example: High-quality running shoes for men
- *               brand:
- *                 type: string
- *                 example: Nike
  *               category:
  *                 type: string
  *                 example: Shoes
