@@ -30,8 +30,6 @@
 
       * Inventory
 
-      * Admin
-
       * Payment
        
 5. Testing
@@ -215,6 +213,35 @@ Responses:
 400 Bad Request: Invalid credentials.
 
 500 Internal Server Error: Server error.
+
+#### Users
+
+##### GET /api/admin/users/:id
+
+Description: Retrieve user details by ID.
+
+Parameters:
+
+          id: User ID.
+
+Responses:
+
+200 OK:
+
+          {
+                  "_id": "string",
+                  "name": "string",
+                  "email": "string",
+                  "password": "Hashed-string",
+                  "isAdmin": false,
+                  "__v": 0
+          }
+
+
+404 Not Found: User not found.
+
+500 Internal Server Error: Server error.
+
 
 
 #### Products
