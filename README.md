@@ -1,13 +1,30 @@
-Walky E-Commerce API
-Table of Contents
-Introduction
-Features
-Technologies Used
-API Endpoints
-Authentication
-Users
-Products
-Orders
+# Walky API
+
+## Table of Contents
+
+1. Introduction
+
+2. Features
+
+3. Technologies Used
+
+4. API Endpoints
+
+      * Authentication
+
+      * Users
+
+     * Products
+
+      * Orders
+
+      * Inventory
+
+      * Admin
+
+      * Payment
+
+
 Getting Started
 Prerequisites
 Installation
