@@ -1,1 +1,1 @@
-An e-commerce platform API
+Walky API
