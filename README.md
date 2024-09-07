@@ -361,3 +361,30 @@ Responses:
   404 Not Found: Product not found.
 
   500 Internal Server Error: Server error.
+
+  
+#### POST /api/payment
+
+Description: Processes a payment for an order.
+
+Request Body:
+
+    {
+      "amount": 5000
+    }
+
+Response:
+
+Status: 200 OK
+
+Body:
+
+  {
+    "clientSecret": "pi_3PwVsrRxzSKG73OF0lgAsyjU_secret_3PtB1OopqGODBrXhIIIDkq34A"
+  }
+  
+Errors:
+Status: 400 Bad Request for invalid payment details.
+Status: 404 Not Found if the order does not exist.
+Status: 500 Internal Server Error for server issues.
+
