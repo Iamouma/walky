@@ -24,7 +24,7 @@
 
       * Users
 
-     * Products
+      * Products
 
       * Orders
 
@@ -32,11 +32,7 @@
 
       * Payment
        
-5. Testing
-       
-6. Deployment
-       
-7. Contributing
+5. Contributing
 
 
 ## Introduction
@@ -49,11 +45,11 @@ Product Management: Add, update, retrieve, and delete product information.
 
 Order Processing: Create and manage orders, including checkout and order status.
 
-Inventory management: Admin manage inventory details.
+Inventory Management: Admin manage inventory details.
 
-Admin Controls: Register and manage admin users with elevated privileges.
+Admin Rights: Admin with elevated privileges.
 
-Payment processing: Pay for orders using Stripe.
+Payment Processing: Pay for orders using Stripe.
 
 ## Technologies Used
 
@@ -67,9 +63,7 @@ Mongoose: ODM (Object Data Modeling) library for MongoDB and Node.js.
 
 JWT (JSON Web Tokens): Authentication and authorization.
 
-Chai: Assertion library for testing.
-
-Mocha: Test framework for Node.js.
+Postman: A popular collaboration platform used for developing, testing and documenting APIs.
 
 
 ## Getting Started
@@ -81,15 +75,15 @@ MongoDB: A MongoDB server must be running. You can use MongoDB Atlas or install 
 ### Installation
 Clone the repository:
 
-     git clone https://github.com/yourusername/walky.git
+    git clone https://github.com/yourusername/walky.git
 
 Navigate to the project directory:
 
-     cd walky/server
+    cd walky/server
 
 Install dependencies:
 
-     npm install
+    npm install
 
 Configuration
 
@@ -128,26 +122,26 @@ Description: Register a new user.
 
 Request Body:
 
-            {
-              "name": "string",
-              "email": "string",
-              "password": "string"
-            }
+    {
+        "name": "string",
+        "email": "string",
+        "password": "string"
+    }
             
 Responses:
 
-  201 Created:
+ 201 Created:
     
 
-          {
-            "token": "string",
-            "user": {
-              "id": "string",
-              "name": "string",
-              "email": "string",
-              "isAdmin": "boolean"
-            }
-          }
+     {
+         "token": "string",
+          "user": {
+            "id": "string",
+            "name": "string",
+            "email": "string",
+            "isAdmin": "boolean"
+        }
+     }
 
  400 Bad Request: User already exists.
 
@@ -160,25 +154,26 @@ Description: Register a new admin user.
 
 Request Body:
 
-          {
-            "name": "string",
-            "email": "string",
-            "password": "string"
-          }
+     {
+        "name": "string",
+        "email": "string",
+        "password": "string"
+     }
 
 Responses:
 
 201 Created:
 
-          {
-            "token": "string",
-            "user": {
-              "id": "string",
-              "name": "string",
-              "email": "string",
-              "isAdmin": true
-            }
-          }
+     {
+         "token": "string",
+           "user": {
+           "id": "string",
+           "name": "string",
+           "email": "string",
+           "isAdmin": true
+        }
+      }
+
 
 400 Bad Request: Admin already exists.
 
@@ -191,24 +186,25 @@ Description: Log in a user OR admin.
 
 Request Body:
 
-          {
-            "email": "string",
-            "password": "string"
-          }
+    {
+        "email": "string",
+        "password": "string"
+    }
 
 Responses:
 
 200 OK:
 
-        {
-          "token": "string",
-          "user": {
-            "id": "string",
-            "name": "string",
-            "email": "string",
-            "isAdmin": "boolean"
-          }
+    {
+        "token": "string",
+        "user": {
+          "id": "string",
+          "name": "string",
+          "email": "string",
+          "isAdmin": "boolean"
         }
+     }
+
 
 400 Bad Request: Invalid credentials.
 
@@ -222,25 +218,42 @@ Description: Retrieve user details by ID.
 
 Parameters:
 
-          id: User ID.
+    id: User ID.
 
 Responses:
 
 200 OK:
 
-          {
-                  "_id": "string",
-                  "name": "string",
-                  "email": "string",
-                  "password": "Hashed-string",
-                  "isAdmin": false,
-                  "__v": 0
-          }
+    {
+        "_id": "string",
+        "name": "string",
+        "email": "string",
+        "password": "Hashed-string",
+        "isAdmin": false,
+        "__v": 0
+     }
 
 
 404 Not Found: User not found.
 
 500 Internal Server Error: Server error.
+
+
+##### DELETE /api/admin/users/:id
+
+Description: Delete a users by ID.
+
+Parameters:
+
+    id: User ID.
+
+Responses:
+
+  200 OK: User removed.
+
+  404 Not Found: User not found.
+
+  500 Internal Server Error: Server error.
 
 
 
@@ -252,30 +265,31 @@ Description: Create a new product.
 
 Request Body:
 
-          {
-            "name": "string",
-            "description": "string",
-            "price": "number",
-            "category": "string",
-            "countInStock": "number"
-          }
+    {
+        "name": "string",
+        "description": "string",
+        "price": "number",
+        "category": "string",
+        "countInStock": "number"
+    }
 
 Responses:
 
 201 Created:
 
-          {
-              "name": " string",
-              "description": "string",
-              "price": number,
-              "category": "string",
-              "countInStock": number,
-              "_id": "string",
-              "createdAt": "string",
-              "updatedAt": "string",
-              "__v": 0
-          }
+    {
+        "name": " string",
+        "description": "string",
+        "price": number,
+        "category": "string",
+        "countInStock": number,
+        "_id": "string",
+        "createdAt": "string",
+        "updatedAt": "string",
+        "__v": 0
+    }
 
+  
 500 Internal Server Error: Server error.
 
 ##### GET /api/products/:id
@@ -290,17 +304,17 @@ Responses:
 
 200 OK:
 
-          {
-              "_id": "string",
-              "name": "string",
-              "description": "string",
-              "price": number,
-              "category": "string",
-              "countInStock": number,
-              "createdAt": "string",
-              "updatedAt": "string",
-              "__v": 0
-          }
+    {
+        "_id": "string",
+        "name": "string",
+        "description": "string",
+        "price": number,
+        "category": "string",
+        "countInStock": number,
+        "createdAt": "string",
+        "updatedAt": "string",
+        "__v": 0
+     }
 
 404 Not Found: Product not found.
 
@@ -317,29 +331,30 @@ Parameters:
 
 Request Body:
 
-              {   
-                "name":"string",
-                "description": "string",
-                "price": 1000,
-                "category": "string",
-                "countInStock": number
-              }
+    {   
+        "name":"string",
+        "description": "string",
+        "price": number,
+        "category": "string",
+        "countInStock": number
+    }
 
 Responses:
 
 200 OK:
 
-            {
-                    "_id": "string",
-                    "name": "string",
-                    "description": "string",
-                    "price": number,
-                    "category": "string",
-                    "countInStock": number,
-                    "createdAt": "string",
-                    "updatedAt": "string",
-                    "__v": 0
-                }
+    {
+        "_id": "string",
+        "name": "string",
+        "description": "string",
+        "price": number,
+        "category": "string",
+        "countInStock": number,
+        "createdAt": "string",
+        "updatedAt": "string",
+        "__v": 0
+     }
+
 
 404 Not Found: Product not found.
 
@@ -370,21 +385,33 @@ Description: Processes a payment for an order.
 Request Body:
 
     {
-      "amount": 5000
+        "amount": number
     }
-
+    
 Response:
 
 Status: 200 OK
 
 Body:
 
-  {
-    "clientSecret": "pi_3PwVsrRxzSKG73OF0lgAsyjU_secret_3PtB1OopqGODBrXhIIIDkq34A"
-  }
-  
-Errors:
-Status: 400 Bad Request for invalid payment details.
-Status: 404 Not Found if the order does not exist.
-Status: 500 Internal Server Error for server issues.
+    {
+      "success": boolean,
+      "message": "string",
+      "clientSecret": "string",
+      "paymentIntentId": "string",
+      "amount": number,
+      "currency": "usd"
+    }
 
+
+Status: 400 Bad request, "Invalid amount provided. Amount must be a positive integer in cents."
+
+Status: 500 Internal Server Error, "Payment Intent creation failed due to a server error. Please try again later."
+
+### To test all the endpoints,  access the swagger documentation.
+
+Once your server is running, you can access the Swagger documentation by opening a browser and navigate to: 
+
+    http://localhost:5000/api-docs 
+    
+to view the interactive Swagger documentation.
