@@ -1,3 +1,6 @@
+![Walky API Logo](https://github.com/user-attachments/assets/bfc63ef3-e3ce-4776-b9f2-726c9d4d21b8)
+
+
 # Walky API
 
 ## Table of Contents
@@ -408,9 +411,7 @@ Status: 400 Bad request, "Invalid amount provided. Amount must be a positive int
 
 Status: 500 Internal Server Error, "Payment Intent creation failed due to a server error. Please try again later."
 
-### To test all the endpoints,  access the swagger documentation.
-
-Once your server is running, you can access the Swagger documentation by opening a browser and navigate to: 
+To access the swagger documentation, once your server is running, you can access the Swagger documentation by opening a browser and navigate to: 
 
     http://localhost:5000/api-docs 
     
