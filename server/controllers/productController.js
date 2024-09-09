@@ -80,18 +80,26 @@ const updateProduct = async (req, res) => {
 // @access  Private/Admin
 const deleteProduct = async (req, res) => {
   try {
+    // Check if the ID is valid
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ message: 'Invalid product ID format' });
+    }
+
     const product = await Product.findById(req.params.id);
 
     if (!product) {
       return res.status(404).json({ message: 'Product not found' });
     }
 
-    await product.remove();
+    await Product.findByIdAndDelete(req.params.id); // Recommended method for deletion
+
     res.status(200).json({ message: 'Product removed' });
   } catch (err) {
+    console.error('Error:', err); // Detailed error logging
     res.status(500).json({ message: 'Server error' });
   }
 };
+
 
 // @desc    Search and filter products
 // @route   GET /api/products/search

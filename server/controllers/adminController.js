@@ -24,11 +24,34 @@ const getDashboardStats = async (req, res) => {
 const getAllUsers = async (req, res) => {
     try {
         const users = await User.find({});
+        
+        // Check if any users were found
+        if (users.length === 0) {
+            return res.status(404).json({ message: 'No users found' });
+        }
+
         res.json(users);
     } catch (error) {
         res.status(500).json({ message: 'Server error' });
     }
 };
+
+// Get User by ID
+const getUserById = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+        
+        // Check if the user exists
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.json(user);
+    } catch (error) {
+        res.status(500).json({ message: 'Server error' });
+    }
+};
+
 
 // Delete a User
 const deleteUser = async (req, res) => {
