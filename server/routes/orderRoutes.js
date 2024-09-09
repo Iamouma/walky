@@ -55,7 +55,7 @@
  *                     example: USA
  *               paymentMethod:
  *                 type: string
- *                 example: PayPal
+ *                 example: Stripe
  *               itemsPrice:
  *                 type: number
  *                 example: 300.00
