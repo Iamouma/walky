@@ -5,13 +5,13 @@
 
 ## Table of Contents
 
-0. Introduction
+0. [Introduction](#introduction)
 
-1. Features
+1. [Features](#features)
 
-2. Technologies Used
+2. [Technologies Used](#technologies-used)
 
-3. Getting Started
+3. [Getting Started](#getting-started)
 
    * Prerequisites
 
@@ -21,7 +21,7 @@
        
    * Running the Server
      
-4.  API Endpoints
+4.  [API Endpoints](#api-endpoints)
 
       * Authentication
 
@@ -35,11 +35,13 @@
 
       * Payment
        
-5. Contributing
+5. [Documentation](#documentation)
+  
+6. [Contributions](#contributions)
 
 
 ## Introduction
-Walky API is a backend service that powers an online shopping platform. The API offers comprehensive functionality for user authentication, product management, order processing, inventory management, admin usage rights and payment processing. This API is the backbone of any e-commerce application, whether it is a web app, mobile app, or both. This README provides a detailed guide to the setup instructions, API endpoints and usage.
+Walky API is a backend service that powers an online shopping platform. The RESTful API offers comprehensive functionality for user authentication, product management, order processing, inventory management, admin usage rights and payment processing. This API is the backbone of any e-commerce application, whether it is a web app, mobile app, or both. This README provides a detailed guide to the setup instructions, API endpoints and usage.
 
 ## Features
 User Authentication: Register, login, and manage user accounts.
@@ -71,7 +73,7 @@ Postman: A popular collaboration platform used for developing, testing and docum
 
 ## Getting Started
 #### Prerequisites
-Node.js: Ensure you have Node.js installed. You can download it from nodejs.org.
+Node.js: Ensure you have Node.js installed. You can download it from https://www.nodejs.org
 
 MongoDB: A MongoDB server must be running. You can use MongoDB Atlas or install MongoDB locally.
 
@@ -411,8 +413,22 @@ Status: 400 Bad request, "Invalid amount provided. Amount must be a positive int
 
 Status: 500 Internal Server Error, "Payment Intent creation failed due to a server error. Please try again later."
 
-To test all the endpoints, access the swagger documentation, once your server is running, you can access the Swagger documentation by opening a browser and navigate to: 
+## Documentation
+
+For detailed documentation on each endpoint, including request and response formats, explore the Swagger documentation.
+
+To access the swagger documentation, once your server is running, open a browser and navigate to: 
 
     http://localhost:5000/api-docs 
     
-to view the interactive Swagger documentation.
+## Contributions
+
+Contributions are welcome, if you have suggestions for improvements, bug fixes, new features or enahnce the functionality of existing features feel free to contribute. Please follow these guidelines.
+
+  * Fork the repository
+                      
+  * Create a new branch for your feature or bug fix
+    
+  * Make your changes and test them thoroughly
+    
+  * Submit a pull request detailing your changes
