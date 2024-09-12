@@ -44,31 +44,31 @@
 Walky API is a backend service that powers an online shopping platform. The RESTful API offers comprehensive functionality for user authentication, product management, order processing, inventory management, admin usage rights and payment processing. This API is the backbone of any e-commerce application, whether it is a web app, mobile app, or both. This README provides a detailed guide to the setup instructions, API endpoints and usage.
 
 ## Features
-User Authentication: Register, login, and manage user accounts.
+  * User Authentication: Register, login, and manage user accounts.
 
-Product Management: Add, update, retrieve, and delete product information.
+  * Product Management: Add, update, retrieve, and delete product information.
 
-Order Processing: Create and manage orders, including checkout and order status.
+  * Order Processing: Create and manage orders, including checkout and order status.
 
-Inventory Management: Admin manage inventory details.
+  * Inventory Management: Admin manage inventory details.
 
-Admin Rights: Admin with elevated privileges.
+  * Admin Rights: Admin with elevated privileges.
 
-Payment Processing: Pay for orders using Stripe.
+  * Payment Processing: Pay for orders using Stripe.
 
 ## Technologies Used
 
-Node.js: Server-side JavaScript runtime.
+  * Node.js: Server-side JavaScript runtime.
 
-Express.js: Web application framework for Node.js.
+  * Express.js: Web application framework for Node.js.
 
-MongoDB: NoSQL database for storing user, product, and order data.
+  * MongoDB: NoSQL database for storing user, product, and order data.
 
-Mongoose: ODM (Object Data Modeling) library for MongoDB and Node.js.
+  * Mongoose: ODM (Object Data Modeling) library for MongoDB and Node.js.
 
-JWT (JSON Web Tokens): Authentication and authorization.
+  * JWT (JSON Web Tokens): Authentication and authorization.
 
-Postman: A popular collaboration platform used for developing, testing and documenting APIs.
+  * Postman: A popular collaboration platform used for developing, testing and documenting APIs.
 
 
 ## Getting Started
