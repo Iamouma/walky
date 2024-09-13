@@ -1,4 +1,6 @@
 const Product = require('../models/Product');
+const mongoose = require('mongoose');
+
 
 // @desc    Get all products
 // @route   GET /api/products
