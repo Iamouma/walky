@@ -48,7 +48,7 @@ exports.createPaymentIntent = async (req, res) => {
         error: 'Invalid payment request. Please check your payment details and try again.' 
       });
     } else {
-      // General server error
+      // Server error
       res.status(500).json({ 
         error: 'Payment Intent creation failed due to a server error. Please try again later.' 
       });
