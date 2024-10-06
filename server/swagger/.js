@@ -149,7 +149,7 @@ const router = express.Router();
 // Get dashboard stats (like total users, total orders, total revenue)
 router.get('/dashboard-stats', protect, admin, getDashboardStats);
 
-// User management routes
+// User management routes.
 router.get('/users', protect, admin, getAllUsers); // Get all users
 router.delete('/users/:id', protect, admin, deleteUser); // Delete a user
 
